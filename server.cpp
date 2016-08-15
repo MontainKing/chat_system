@@ -51,9 +51,10 @@ int main(int argc,char *argv[])
 				socklen_t client_addrLength = sizeof(struct sockaddr_in);
 				int clientfd = accept(listener,(struct sockaddr *)&client_address,&client_addrLength);
 
-				printf("client connection from: %s : %d(IP : PORT),clientfd = %d \n",inet_ntoa(client_address.sin_addr),\
-																					 ntohs(client_address.sin_port),\
-																					 clientfd);
+				printf("client connection from: %s : %d(IP : PORT),clientfd = %d \n",\
+										inet_ntoa(client_address.sin_addr),\
+										ntohs(client_address.sin_port),\
+										clientfd);
 				addfd(epfd,clientfd,true);
 
 				clients_list.push_back(clientfd);
